@@ -1,28 +1,45 @@
 .form {
-    display: inline-block;
-
-    padding: 10px;
-    margin: 10px;
-    border-radius: 10px;
-
-    box-shadow: 0 0 10px #CCC;
 }
 
 .input {
     border-radius: 10px;
     border: 1px solid #CCC;
-    padding: 0 10px;
+    font-size: 1.2em;
+    padding: 5px 10px;
     margin: 5px 0;
+    outline: none;
+}
+
+.input:focus {
+    box-shadow: 0 0 10px #CCC;
+}
+
+.input::placeholder {
+    font-style: italic;
 }
 
 .button {
-    background: #FFF;
+    background: none;
+    border: 1px #DDD solid;
     border-radius: 10px;
-    font-weight: bold;
     cursor: pointer;
+    font-size: 1.1em;
+    padding: 10px;
+    width: fit-content;
+
+    transition: ease 300ms;
+}
+
+.button:active {
+    transform: scale(0.95);
+}
+
+.button.primary {
+    background: #CA0E0E;
+    border: none;
+    color: #EEE;
 }
 
 .button:hover {
     border-color: var(--main-gradient);
-    background: var(--main-gradient);
 }

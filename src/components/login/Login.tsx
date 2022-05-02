@@ -1,5 +1,4 @@
 import React from 'react';
-import CmForm from "../ui-basic/form/CmForm";
 import CmButton from "../ui-basic/form/button/CmButton";
 import TextInput from "../ui-basic/form/text-input/TextInput";
 import PasswordInput from "../ui-basic/form/password-input/PasswordInput";
@@ -7,6 +6,9 @@ import {AuthenticationService} from "../../domain/services/security/Authenticati
 import {Link, useNavigate} from "react-router-dom";
 import {RoutePath} from "../../domain/RoutePath";
 import {useForm} from "react-hook-form";
+import GlobalForm from "../ui-basic/global-form/GlobalForm";
+import BigTitle from "../ui-basic/big-title/BigTitle";
+import VerticalSeparator from "../ui-basic/form/vertical-separator/VerticalSeparator";
 
 const Login = () => {
     const {register, handleSubmit} = useForm();
@@ -15,24 +17,27 @@ const Login = () => {
     const signIn = data => {
         AuthenticationService.login(data.phone, data.password).subscribe(() => {
             navigate(RoutePath.MAIN, {replace: true});
+            navigate(0);
         });
     };
 
     return (
-        <CmForm>
+        <GlobalForm>
+            <BigTitle className="mb-5">Authorizing</BigTitle>
             <div>
-                <TextInput placeholder="Phone number" {...register("phone")}/>
+                <TextInput placeholder="Phone number" className="col-12" {...register("phone")}/>
             </div>
             <div>
-                <PasswordInput placeholder="Password" {...register("password")}/>
+                <PasswordInput placeholder="Password" className="col-12" {...register("password")}/>
             </div>
+            <VerticalSeparator/>
             <div>
-                <CmButton className="col-6" onClick={handleSubmit(signIn)}>Sign In</CmButton>
+                <CmButton className="col-6" styleType="primary" onClick={handleSubmit(signIn)}>Sign In</CmButton>
                 <Link to={RoutePath.REGISTRATION}>
-                    <CmButton className="col-6">Sign Up</CmButton>
+                    <CmButton className="col-6" styleType="secondary">Sign Up</CmButton>
                 </Link>
             </div>
-        </CmForm>
+        </GlobalForm>
     );
 }
 
