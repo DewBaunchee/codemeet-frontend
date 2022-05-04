@@ -1,0 +1,47 @@
+:local(*) {
+    --active-color: #AAA;
+}
+
+.container {
+
+    width: fit-content;
+    user-select: none;
+    display: flex;
+    padding: 0;
+    border: 1px var(--active-color) solid;
+    border-radius: 10px;
+    overflow: hidden;
+
+}
+
+.option {
+    cursor: pointer;
+    font-size: 0.8em;
+    margin: 0;
+    padding: 1px 10px;
+
+    border-left: 1px solid;
+    border-color: var(--active-color);
+
+    transition: ease-in 100ms;
+}
+
+.option:first-child {
+    border-left: none;
+}
+
+.active {
+    background: var(--active-color);
+}
+
+.active button {
+    color: #FFF;
+}
+
+.option button {
+    background: none;
+    border: none;
+    outline: none;
+
+    transition: ease-in 100ms;
+}

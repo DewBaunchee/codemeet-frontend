@@ -3,6 +3,7 @@ import {Navigate, Route, Routes} from 'react-router-dom';
 import {RoutePath} from "./domain/RoutePath";
 import Login from "./components/login/Login";
 import "./App.module.css";
+import "./styles/ScrollBar.module.css";
 import Registration from "./components/registration/Registration";
 import {AuthenticationService} from "./domain/services/security/AuthenticationService";
 import Main from "./components/main/Main";
@@ -45,7 +46,7 @@ const breakpoints: Breakpoints<{ value: number }> = {
 
 const grommetTheme = deepMerge(grommet, {global: {breakpoints}});
 
-function App() {
+const App = () => {
     const isAuthenticated = AuthenticationService.isAuthenticated();
     return (
         <Grommet theme={grommetTheme} full={true}>

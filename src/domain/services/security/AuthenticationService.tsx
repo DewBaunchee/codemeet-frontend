@@ -30,7 +30,7 @@ export const AuthenticationService = {
         if (isBlank(tokens?.access_token)) return false;
 
         const decoded = jwtDecode<{ exp: number }>(tokens.access_token);
-        const currentTime = new Date().getTime();
+        const currentTime = new Date().getTime() / 1000;
         return currentTime < decoded.exp;
     },
 

@@ -1,0 +1,32 @@
+.container {
+
+    background: #EEE;
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    margin: 0;
+    padding: 0;
+
+}
+
+.gallery {
+    display: inline-flex;
+}
+
+.photo {
+
+    display: inline;
+    width: 160px;
+    height: 160px;
+    border-radius: 10px;
+    border: 1px #CCC solid;
+    overflow: hidden;
+    outline: none;
+    box-shadow: none;
+    margin: 10px 5px;
+
+}
+
+.addPhoto {
+
+}

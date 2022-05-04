@@ -1,4 +1,4 @@
-import React, {ForwardedRef, useCallback} from 'react';
+import React, {ForwardedRef} from 'react';
 import CmWindow from "../ui-basic/window/CmWindow";
 import CmButton from "../ui-basic/form/button/CmButton";
 import {AuthenticationService} from "../../domain/services/security/AuthenticationService";
@@ -17,7 +17,7 @@ const Header = React.forwardRef(
             navigate(0);
         };
         return (
-            <CmWindow ref={ref} {...props}>
+            <CmWindow ref={ref} {...props} >
                 <CmButton style={{float: "right"}} onClick={logout}>Logout</CmButton>
             </CmWindow>
         );

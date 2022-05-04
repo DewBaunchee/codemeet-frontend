@@ -4,7 +4,7 @@
 .input {
     border-radius: 10px;
     border: 1px solid #CCC;
-    font-size: 1.2em;
+    font-size: 1em;
     padding: 5px 10px;
     margin: 5px 0;
     outline: none;
@@ -15,7 +15,6 @@
 }
 
 .input::placeholder {
-    font-style: italic;
 }
 
 .button {
@@ -42,4 +41,40 @@
 
 .button:hover {
     border-color: var(--main-gradient);
+}
+
+
+.comboBox {
+
+    color: #757575;
+    user-select: none;
+    cursor: pointer;
+
+}
+
+.comboMenu {
+
+    display: none;
+    position: absolute;
+
+}
+
+.comboMenu span {
+
+    display: block;
+    background: #FFF;
+    width: 100%;
+
+}
+
+.comboMenu span:hover {
+
+    background: #CCC;
+
+}
+
+.comboMenuOpened {
+
+    display: block;
+
 }

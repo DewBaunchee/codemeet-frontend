@@ -10,7 +10,7 @@ const GlobalForm = (props: any) => {
             areas={[{name: "form", start: [1, 0], end: [1, 0]}]}
             alignContent="center"
         >
-            <CmWindow gridArea="form">
+            <CmWindow gridArea="form" className="p-5">
                 {props.children}
             </CmWindow>
         </ResponsiveGrid>

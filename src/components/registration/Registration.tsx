@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import TextInput from "../ui-basic/form/text-input/TextInput";
 import PasswordInput from "../ui-basic/form/password-input/PasswordInput";
 import CmButton from "../ui-basic/form/button/CmButton";
@@ -9,10 +9,13 @@ import {AuthenticationService} from "../../domain/services/security/Authenticati
 import GlobalForm from "../ui-basic/global-form/GlobalForm";
 import VerticalSeparator from "../ui-basic/form/vertical-separator/VerticalSeparator";
 import BigTitle from "../ui-basic/big-title/BigTitle";
+import ComboBox from "../ui-basic/form/combo-box/ComboBox";
 
 const Registration = () => {
     const {register, handleSubmit} = useForm();
     const navigate = useNavigate();
+
+    const [code, setCode] = useState("key1");
 
     const signUp = data => {
         AuthenticationService.registration(data.phoneNumber, data.password, data.name).subscribe(() => {

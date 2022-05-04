@@ -1,0 +1,21 @@
+:global(::-webkit-scrollbar) {
+    width: 4px;
+    height: 4px;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+:global(::-webkit-scrollbar-track) {
+    background: rgba(200, 200, 200, 0.6);
+    border-radius: 2px;
+}
+
+:global(::-webkit-scrollbar-thumb) {
+    background: rgba(100, 100, 100, 0.6);
+    border-radius: 2px;
+    opacity: 0.8;
+}
+
+:global(::-webkit-scrollbar-thumb:hover) {
+    opacity: 0;
+}

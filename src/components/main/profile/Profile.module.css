@@ -1,0 +1,45 @@
+.header {
+
+    background: url("/src/assets/header-back.jpg");
+    background-size: 100% 100%;
+    min-height: 300px;
+    border-bottom: 1px #AAA solid;
+
+}
+
+.avatar {
+
+    padding: 20px;
+
+    height: 80%;
+    width: 200px !important;
+
+    margin-left: 100px;
+
+    background: #FFF;
+    border-radius: 10px;
+
+    text-align: center;
+
+}
+
+.avatarImage {
+
+    background: #EEE;
+    min-width: 160px;
+    min-height: 160px;
+
+}
+
+.avatarName {
+
+    margin: 20px;
+    font-weight: bold;
+
+}
+
+.tabbedWindow {
+
+    margin: auto;
+
+}

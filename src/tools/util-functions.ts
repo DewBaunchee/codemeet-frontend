@@ -1,6 +1,5 @@
-const classNames: (...args: string[]) => string = (...args: string[]) => args.join(" ");
-
-export {classNames};
+export const concatClasses: (...args: (string | undefined)[]) => string =
+    (...args: (string | undefined)[]) => args.join(" ").trim();
 
 export const isPresent = (item: unknown): boolean => {
     return item !== undefined && item !== null;
