@@ -1,4 +1,4 @@
-import React, {HTMLAttributes} from 'react';
+import React, {HTMLAttributes} from "react";
 import s from "./RadioButtonPanel.module.css";
 import {concatClasses} from "../../../../tools/util-functions";
 
@@ -23,7 +23,7 @@ const RadioButtonPanel = ({
         <span {...props} className={concatClasses(s.container, props.className)}>
             {
                 options.map(option => (
-                    <span className={`${s.option} ${option === active ? s.active : ""}`}
+                    <span key={option} className={`${s.option} ${option === active ? s.active : ""}`}
                           onClick={() => onChange && onChange(option)}>
                         <button>{option}</button>
                     </span>

@@ -1,7 +1,17 @@
-const ImageConverter = {
+import {isBlank} from "./util-functions";
+import arrayBufferToString from "arraybuffer-to-string";
+import {isArrayBuffer} from "util/types";
 
-    convert: (buffer: Buffer): string => `data:image/png;base64,${buffer?.toString("base64")}`,
+const Converter = {
 
+    convertImage: (buffer: any): string | undefined => {
+        if (isBlank(buffer?.data)) return undefined;
+        return `data:image/jpeg;base64,${btoa(String.fromCharCode(...buffer.data))}`;
+    },
+
+    stringifyArrayBuffer(arrayBuffer: ArrayBuffer): string {
+        return arrayBufferToString(arrayBuffer);
+    },
 };
 
-export default ImageConverter;
+export default Converter;

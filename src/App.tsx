@@ -50,6 +50,7 @@ const App = () => {
     const isAuthenticated = AuthenticationService.isAuthenticated();
     return (
         <Grommet theme={grommetTheme} full={true}>
+            <input id="file-input" type="file" multiple={true} style={{display: "none"}}/>
             <Routes>
                 <Route path={RoutePath.MAIN} element={privateElement(isAuthenticated, <Main/>)}/>
                 <Route path={RoutePath.LOGIN} element={publicElement(isAuthenticated, <Login/>)}/>
