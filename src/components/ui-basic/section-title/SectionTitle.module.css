@@ -1,0 +1,14 @@
+.container {
+    text-align: left;
+    border-bottom: 1px solid #CCC;
+    line-height: 0.1em;
+    padding: 0 10px;
+    margin: 1.5em 10px;
+}
+
+.container span {
+    color: #AAA;
+    background: #FFF;
+    padding: 0 10px;
+    user-select: none;
+}

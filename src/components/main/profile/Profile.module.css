@@ -1,8 +1,8 @@
 .header {
 
-    background: url("/src/assets/header-back.jpg");
-    background-size: 100% 100%;
-    min-height: 300px;
+    padding: 20px 0;
+    background: url("/src/assets/header-back.svg");
+    background-size: cover;
     border-bottom: 1px #AAA solid;
 
 }
@@ -11,8 +11,8 @@
 
     padding: 20px;
 
-    height: 80%;
     width: 200px !important;
+    box-shadow: 0 0 20px #EEE;
 
     margin-left: 100px;
 
@@ -28,14 +28,28 @@
     background: #EEE;
     min-width: 160px;
     min-height: 160px;
+    max-width: 160px;
+    max-height: 160px;
+    margin: 0;
 
 }
 
 .avatarName {
 
-    margin: 20px;
+    margin-top: 20px;
+    width: 100%;
+    text-overflow: ellipsis;
     font-weight: bold;
+    border: none;
+    background: none;
+    text-align: center;
 
+}
+
+.avatarName:focus {
+    border: none;
+    outline: none;
+    border-bottom: 1px #000 dashed;
 }
 
 .tabbedWindow {

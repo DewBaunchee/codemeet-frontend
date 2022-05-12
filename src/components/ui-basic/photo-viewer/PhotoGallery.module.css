@@ -1,11 +1,13 @@
 .container {
 
-    background: #EEE;
+    border-color: #EEE;
+    border-style: solid;
+    border-width: 1px 0 1px 0;
     width: 100%;
-    overflow-x: scroll;
+    overflow-x: auto;
     overflow-y: hidden;
     margin: 0;
-    padding: 0;
+    padding: 20px;
 
 }
 
@@ -14,19 +16,30 @@
 }
 
 .photo {
-
     display: inline;
-    width: 160px;
-    height: 160px;
+    max-height: 160px;
     border-radius: 10px;
-    border: 1px #CCC solid;
+    cursor: pointer;
+
     overflow: hidden;
     outline: none;
     box-shadow: none;
-    margin: 10px 5px;
+    margin: 0 5px;
 
 }
 
 .addPhoto {
 
+    width: 160px;
+    height: 160px;
+    cursor: pointer;
+
+    background: #DDD url("/src/assets/plus.svg") no-repeat center;
+    background-size: 40%;
+    opacity: 0.4;
+
+}
+
+.addPhoto:hover {
+    opacity: 0.6;
 }
