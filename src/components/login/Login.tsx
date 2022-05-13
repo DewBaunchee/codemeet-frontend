@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import CmButton from "../ui-basic/form/button/CmButton";
 import TextInput from "../ui-basic/form/text-input/TextInput";
 import PasswordInput from "../ui-basic/form/password-input/PasswordInput";
@@ -9,6 +9,7 @@ import {useForm} from "react-hook-form";
 import GlobalForm from "../ui-basic/global-form/GlobalForm";
 import BigTitle from "../ui-basic/big-title/BigTitle";
 import VerticalSeparator from "../ui-basic/form/vertical-separator/VerticalSeparator";
+import "../../styles/GlobalStyles.module.css";
 
 const Login = () => {
     const {register, handleSubmit} = useForm();
@@ -30,11 +31,14 @@ const Login = () => {
             <div>
                 <PasswordInput placeholder="Password" className="col-12" {...register("password")}/>
             </div>
+            <div>
+                <CmButton className="col-12 mt-3" styleType="primary" onClick={handleSubmit(signIn)} onEnter={true}>Sign In</CmButton>
+            </div>
             <VerticalSeparator/>
             <div>
-                <CmButton className="col-6" styleType="primary" onClick={handleSubmit(signIn)}>Sign In</CmButton>
+                <p className="hint m-2" style={{textAlign: "center"}}>New to CodeMeet?</p>
                 <Link to={RoutePath.REGISTRATION}>
-                    <CmButton className="col-6" styleType="secondary">Sign Up</CmButton>
+                    <CmButton className="col-12 m-0" styleType="secondary">Sign Up</CmButton>
                 </Link>
             </div>
         </GlobalForm>

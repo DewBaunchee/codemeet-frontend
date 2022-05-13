@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from "react";
 import TextInput from "../ui-basic/form/text-input/TextInput";
 import PasswordInput from "../ui-basic/form/password-input/PasswordInput";
 import CmButton from "../ui-basic/form/button/CmButton";
@@ -9,13 +9,10 @@ import {AuthenticationService} from "../../domain/services/security/Authenticati
 import GlobalForm from "../ui-basic/global-form/GlobalForm";
 import VerticalSeparator from "../ui-basic/form/vertical-separator/VerticalSeparator";
 import BigTitle from "../ui-basic/big-title/BigTitle";
-import ComboBox from "../ui-basic/form/combo-box/ComboBox";
 
 const Registration = () => {
     const {register, handleSubmit} = useForm();
     const navigate = useNavigate();
-
-    const [code, setCode] = useState("key1");
 
     const signUp = data => {
         AuthenticationService.registration(data.phoneNumber, data.password, data.name).subscribe(() => {
@@ -38,11 +35,14 @@ const Registration = () => {
             <div>
                 <PasswordInput placeholder="Confirm password" className="col-12" {...register("confirm")}/>
             </div>
+            <div>
+                <CmButton className="col-12 mt-3" styleType="primary" onClick={handleSubmit(signUp)} onEnter={true}>Sign Up</CmButton>
+            </div>
             <VerticalSeparator/>
             <div>
-                <CmButton className="col-6" styleType="primary" onClick={handleSubmit(signUp)}>Sign Up</CmButton>
+                <p className="hint m-2" style={{textAlign: "center"}}>Already have an account?</p>
                 <Link to={RoutePath.LOGIN}>
-                    <CmButton className="col-6" styleType="secondary">Sign In</CmButton>
+                    <CmButton className="col-12 m-0" styleType="secondary">Sign In</CmButton>
                 </Link>
             </div>
         </GlobalForm>
