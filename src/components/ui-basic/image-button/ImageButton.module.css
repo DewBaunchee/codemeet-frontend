@@ -1,0 +1,50 @@
+.button {
+
+    user-select: none;
+
+    display: inline-flex;
+    height: 30px;
+
+    gap: 3px;
+
+    padding: 5px;
+
+    cursor: pointer;
+    border-radius: 5px;
+
+    outline: none;
+    border: none;
+    background: none;
+
+    color: #555;
+    font-size: 0.8em;
+
+}
+
+.button:hover {
+
+    background: rgba(200, 200, 200, 0.4);
+
+}
+
+.button:active {
+
+    background: rgba(200, 200, 200, 0.6);
+
+}
+
+.button:disabled {
+
+    background: none!important;
+    cursor: default;
+    opacity: 0.5;
+
+}
+
+.button img {
+
+    height: 100%;
+    width: 100%;
+    display: block;
+
+}
