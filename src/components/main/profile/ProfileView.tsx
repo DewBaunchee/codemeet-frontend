@@ -60,7 +60,7 @@ const ProfileView = React.forwardRef(
         return <CmWindow ref={ref} gridArea={props.gridArea} style={{background: "#EEE"}}>
             <div className={`row m-0 ${s.header}`}>
                 <div className={`align-self-center ${s.avatar}`}>
-                    <img className={s.avatarImage} src={Converter.convertImage(profile?.mainPhoto.data)} alt={profile?.name}/>
+                    <img className={s.avatarImage} src={Converter.convertImage(profile?.mainPhoto?.data)} alt={profile?.name}/>
                     <input className={s.avatarName}
                            value={name}
                            onChange={event => setName(event.target.value)}
