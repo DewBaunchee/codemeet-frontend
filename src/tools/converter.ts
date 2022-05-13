@@ -1,6 +1,5 @@
 import {isBlank} from "./util-functions";
 import arrayBufferToString from "arraybuffer-to-string";
-import {isArrayBuffer} from "util/types";
 
 const Converter = {
 
