@@ -1,0 +1,12 @@
+:global(.hint) {
+
+    font-size: 0.8em;
+    color: #888;
+    user-select: none;
+
+}
+
+:global(a) {
+
+    text-decoration: none!important;
+}

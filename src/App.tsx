@@ -9,6 +9,8 @@ import {AuthenticationService} from "./domain/services/security/AuthenticationSe
 import Main from "./components/main/Main";
 import {deepMerge} from "grommet/utils";
 import {GridSizeType, Grommet, grommet} from "grommet";
+import Solving from "./components/solving/Solving";
+import Searching from "./components/searching/Searching";
 
 const privateElement = (isAuthenticated: boolean, element: ReactElement) => {
     return isAuthenticated ? (
@@ -48,11 +50,14 @@ const grommetTheme = deepMerge(grommet, {global: {breakpoints}});
 
 const App = () => {
     const isAuthenticated = AuthenticationService.isAuthenticated();
+
     return (
         <Grommet theme={grommetTheme} full={true}>
             <input id="file-input" type="file" multiple={true} style={{display: "none"}}/>
             <Routes>
                 <Route path={RoutePath.MAIN} element={privateElement(isAuthenticated, <Main/>)}/>
+                <Route path={`${RoutePath.SOLVING}/:id`} element={privateElement(isAuthenticated, <Solving/>)}/>
+                <Route path={RoutePath.SEARCHING} element={privateElement(isAuthenticated, <Searching/>)}/>
                 <Route path={RoutePath.LOGIN} element={publicElement(isAuthenticated, <Login/>)}/>
                 <Route path={RoutePath.REGISTRATION} element={publicElement(isAuthenticated, <Registration/>)}/>
                 <Route path="*" element={<Navigate to="/"/>}/>

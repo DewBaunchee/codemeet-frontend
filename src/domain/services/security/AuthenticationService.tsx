@@ -14,19 +14,21 @@ export interface TokenPair {
 
 export const AuthenticationService = {
 
-    login: (phone: string, password: string) => httpClient.post<TokenPair>(`${PREFIX}/login`, null, {
-        params: {
-            username: phone,
-            password
-        }
-    }).pipe(tap((token: TokenPair) => localStorage.setItem(TOKEN_KEY, JSON.stringify(token)))),
+    login(phone: string, password: string) {
+        return httpClient.post<TokenPair>(`${PREFIX}/login`, null, {
+            params: {
+                username: phone,
+                password
+            }
+        }).pipe(tap((token: TokenPair) => localStorage.setItem(TOKEN_KEY, JSON.stringify(token))))
+    },
 
     logout() {
         localStorage.removeItem(TOKEN_KEY);
     },
 
-    isAuthenticated: (): boolean => {
-        const tokens: TokenPair = JSON.parse(localStorage.getItem(TOKEN_KEY)!);
+    isAuthenticated(): boolean {
+        const tokens: TokenPair = this.getTokens();
         if (isBlank(tokens?.access_token)) return false;
 
         const decoded = jwtDecode<{ exp: number }>(tokens.access_token);
@@ -34,13 +36,18 @@ export const AuthenticationService = {
         return currentTime < decoded.exp;
     },
 
-    registration: (phoneNumber: string, password: string, name: string): Observable<string> =>
-        httpClient.get<string>(`${PREFIX}/salt`).pipe(
+    getTokens(): TokenPair {
+        return JSON.parse(localStorage.getItem(TOKEN_KEY)!)
+    },
+
+    registration(phoneNumber: string, password: string, name: string): Observable<string> {
+        return httpClient.get<string>(`${PREFIX}/salt`).pipe(
             switchMap((salt: string) =>
                 httpClient.post<string>(
                     `${PREFIX}/registration`,
                     {phoneNumber, password, name, salt}
                 )
             )
-        ),
+        )
+    },
 }
