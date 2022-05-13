@@ -1,0 +1,55 @@
+.list {
+
+    padding: 20px;
+
+}
+
+.item {
+
+    display: block;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #EEE;
+
+    margin: 5px 0;
+    padding: 0;
+
+    cursor: pointer;
+    user-select: none;
+
+}
+
+.item .info {
+
+    display: inline-block;
+    width: calc(100% - 50px);
+    padding: 20px;
+    font-size: 0.9em;
+    color: #555;
+
+}
+
+.item .button {
+
+    display: inline;
+    position: absolute;
+    width: 50px;
+    right: -50px;
+    top: 0;
+    bottom: 0;
+    background: #ff4646 url("/src/assets/edit.svg") no-repeat center;
+    background-size: 50%;
+
+    transition: 100ms ease-in;
+}
+
+.item:hover .button {
+    right: 0;
+}
+
+.solved .button {
+    background-color: #51f300;
+    background-image: url("/src/assets/done.svg");
+    right: 0;
+}
