@@ -1,5 +1,5 @@
-import {Grid, GridProps, ResponsiveContext} from 'grommet';
-import React, {HTMLAttributes} from 'react';
+import {Grid, GridProps, ResponsiveContext} from "grommet";
+import React, {HTMLAttributes} from "react";
 import {isBlank} from "../../../tools/util-functions";
 import {AreasType, AreaType, ItemsBreakpoints} from "../../../App";
 

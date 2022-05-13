@@ -1,5 +1,5 @@
-import React, {HTMLAttributes, useState} from 'react';
-import ImageConverter from "../../../../tools/converter";
+import React, {HTMLAttributes, useState} from "react";
+import Converter from "../../../../tools/converter";
 import {concatClasses} from "../../../../tools/util-functions";
 import s from "../CmForm.module.css";
 
@@ -25,7 +25,7 @@ const ComboBox = ({active, onChange, options, open, openToggled, ...props}: Comb
         option
             ?
             <span onClick={() => onChange && onChange(option.key)}>
-                {option.image ? <img src={ImageConverter.convert(option.image)} alt=""/> : undefined}
+                {option.image ? <img src={Converter.convertImage(option.image)} alt=""/> : undefined}
                 <span>{option.label}</span>
             </span>
             : undefined

@@ -1,5 +1,5 @@
-import React, {ReactElement} from 'react';
-import {Navigate, Route, Routes} from 'react-router-dom';
+import React, {ReactElement} from "react";
+import {Navigate, Route, Routes} from "react-router-dom";
 import {RoutePath} from "./domain/RoutePath";
 import Login from "./components/login/Login";
 import "./App.module.css";

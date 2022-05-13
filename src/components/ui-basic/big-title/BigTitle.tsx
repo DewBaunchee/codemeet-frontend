@@ -1,4 +1,4 @@
-import React, {HTMLAttributes} from 'react';
+import React, {HTMLAttributes} from "react";
 import {concatClasses} from "../../../tools/util-functions";
 import s from "./BigTitle.module.css";
 

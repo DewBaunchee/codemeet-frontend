@@ -1,4 +1,4 @@
-import React, {ForwardedRef, HTMLAttributes} from 'react';
+import React, {ForwardedRef, HTMLAttributes} from "react";
 import {concatClasses} from "../../../tools/util-functions";
 import s from "./CmWindow.module.css";
 import {Box, BoxProps} from "grommet";
