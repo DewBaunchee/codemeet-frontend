@@ -18,6 +18,8 @@ import TerminalView from "../solving/terminal/TerminalView";
 import {SearchingCoincidence} from "../../domain/entities/SearchingCoincidence";
 import {SearchingService} from "../../domain/services/searching/SearchingService";
 import Editor from "../solving/editor/Editor";
+import Avatar from "../main/profile/avatar/Avatar";
+import CmButton from "../ui-basic/form/button/CmButton";
 
 const rows: ItemsBreakpoints = {
     xsmall: ["xxsmall", "small", "auto", "1/3"],
@@ -63,6 +65,7 @@ const areas: AreasType = {
 const Searching = () => {
     const navigate = useNavigate();
 
+    const [searchCompleted, setSearchCompleted] = useState(false);
     const [coincidence, setCoincidence] = useState<SearchingCoincidence>();
 
     const [waiting, setWaiting] = useState(false);
@@ -70,8 +73,10 @@ const Searching = () => {
     const [terminal, setTerminal] = useState<Terminal>();
 
     const next = () => {
+        setSearchCompleted(false);
         SearchingService.next().subscribe(coincidence => {
             setCoincidence(coincidence);
+            setSearchCompleted(true);
         });
     };
 
@@ -125,6 +130,19 @@ const Searching = () => {
                 <ObjectiveItem style={{cursor: "default"}}
                                onlyInfo={true}
                                objective={coincidence.solvedObjective.objective}/>
+
+                <Avatar className="align-self-center"
+                        style={{marginTop: "auto", marginBottom: "10px"}}
+                        name={coincidence.profile.name}
+                        profile={coincidence.profile}
+                        editable={false}
+                />
+                <CmButton className="col-12 m-0"
+                          styleType="primary"
+                          onClick={next}
+                >
+                    Find next
+                </CmButton>
             </CmWindow>
         </ResponsiveGrid>
     ) : (
@@ -138,7 +156,7 @@ const Searching = () => {
                 width: "100%",
             }}>
             <span className="align-self-center">
-               Sorry, we cannot find anyone :(
+               {searchCompleted && "Sorry, we cannot find anyone :("}
             </span>
         </div>
     );

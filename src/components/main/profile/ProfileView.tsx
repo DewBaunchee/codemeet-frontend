@@ -15,7 +15,7 @@ import ObjectiveList from "./objectives/ObjectiveList";
 import {Objective} from "../../../domain/entities/Objective";
 import {ObjectiveService} from "../../../domain/services/objective/ObjectiveService";
 import {PhotoImportService} from "../../../domain/services/import/PhotoImportService";
-import Converter from "../../../tools/converter";
+import Avatar from "./avatar/Avatar";
 
 const ProfileView = React.forwardRef(
     (
@@ -59,19 +59,14 @@ const ProfileView = React.forwardRef(
 
         return <CmWindow ref={ref} gridArea={props.gridArea} style={{background: "#EEE"}}>
             <div className={`row m-0 ${s.header}`}>
-                <div className={`align-self-center ${s.avatar}`}>
-                    <img className={s.avatarImage} src={Converter.convertImage(profile?.mainPhoto?.data)} alt={profile?.name}/>
-                    <input className={s.avatarName}
-                           value={name}
-                           onChange={event => setName(event.target.value)}
-                           onKeyDown={event => {
-                               if (event.key === "Enter") (event.target as HTMLInputElement).blur();
-                           }}
-                           onBlur={() => {
-                               ProfileService.changeName(name);
-                           }}
-                    />
-                </div>
+                <Avatar className="align-self-center"
+                        style={{marginLeft: "100px"}}
+                        profile={profile}
+                        name={name}
+                        onNameChange={setName}
+                        onNameBlur={ProfileService.changeName}
+                        editable={true}
+                />
             </div>
             <div className="row m-0 justify-content-center">
                 <TabbedWindow className="mt-3 p-0 col-xxl-8 col-xl-10 col-lg-12"

@@ -4,7 +4,7 @@ import {io} from "socket.io-client";
 import {Observable} from "rxjs";
 import {Terminal} from "../../terminal/Terminal";
 
-const url = "ws://192.168.1.144:10800";
+const url = "ws://localhost:10800";
 
 const prefix = "code";
 
